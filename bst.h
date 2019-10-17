@@ -9,6 +9,7 @@
 
 #include <iostream>
 #include <string>
+#include <exception>
 
 using namespace std;
 
@@ -59,7 +60,15 @@ private:
   int count;
 
   void clear();
+  void transplant();
 
+};
+
+class EmptyBSTException : public exception {
+public:
+  string what() {
+    return "The tree is empty";
+  }
 };
 
 #include "bst.cc"
