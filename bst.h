@@ -58,6 +58,8 @@ private:
   Node* root;
   int count;
 
+  void clear();
+
 };
 
 #include "bst.cc"
