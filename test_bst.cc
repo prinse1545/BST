@@ -11,9 +11,11 @@ int main() {
   int* p;
 
   bs.insert(&to_insert);
-  // p = bs.get(to_insert);
-  //
-  // cout << *p << endl;
+  p = bs.get(to_insert);
+
+  int got = *p;
+
+  cout << got << endl;
 
   return 0;
 }

@@ -80,7 +80,6 @@ void BST<T>::insert(T *k) {
 
   count++;
 
-  cout << count << endl;
 
 }
 
