@@ -60,7 +60,7 @@ private:
   int count;
 
   void clear();
-  void transplant();
+  void transplant(Node* u, Node* v);
 
 };
 
@@ -71,6 +71,6 @@ public:
   }
 };
 
-#include "bst.cc"
+//#include "bst.cc"
 
 #endif

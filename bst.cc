@@ -85,7 +85,7 @@ void BST<T>::insert(T *k) {
 
 template <class T>
 void BST<T>::remove(const T &k) {
-
+  
 }
 
 template <class T>
@@ -145,4 +145,20 @@ string BST<T>::preOrder() const {
 template <class T>
 string BST<T>::postOrder() const {
 
+}
+
+template <class T>
+void BST<T>::transplant(Node* u, Node*v){
+  if(u->parent == NULL){
+    root = v;
+  }
+  else if(u == u->parent->left){
+    u->parent->left = v;
+  }
+  else{
+    u->parent->right = v;
+  }
+  if(v!=NULL){
+    v->parent = u->parent;
+  }
 }

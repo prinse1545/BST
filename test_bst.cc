@@ -1,5 +1,6 @@
 #include <iostream>
 #include "bst.h"
+#include "bst.cc"
 
 using namespace std;
 
