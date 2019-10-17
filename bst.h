@@ -18,7 +18,7 @@ class BST {
 
 public:
 
-  BST();
+  BST();//
 
   BST(const BST<T> &bst);
 
