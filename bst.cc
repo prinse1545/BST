@@ -85,7 +85,7 @@ void BST<T>::insert(T *k) {
 
 template <class T>
 void BST<T>::remove(const T &k) {
-  
+
 }
 
 template <class T>
