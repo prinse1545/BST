@@ -1,9 +1,10 @@
-// Philipp Moura Srivastava & Anubhav Adhikari
-// 10.17.2019
-// Filename: bst.h
-// Description: The header file for a binary search tree
-// as described in the ADT by Dr. Lall
-
+/*
+ Philipp Moura Srivastava & Anubhav Adhikari
+ 10.17.2019
+ Filename: bst.h
+ Description: The header file for a binary search tree
+              as described in the ADT by Dr. Lall
+*/
 #ifndef _BST_h
 #define _BST_h
 
@@ -19,33 +20,33 @@ class BST {
 
 public:
 
-  BST();//
+  BST();//done
 
-  BST(const BST<T> &bst);
+  BST(const BST<T> &bst);//incomplete
 
-  ~BST();
+  ~BST();//done
 
-  bool empty() const;
+  bool empty() const;//done
 
-  T* get(const T &k) const;
+  T* get(const T &k) const;//done
 
-  void insert(T *k);
+  void insert(T *k);//done
 
-  void remove(const T &k);
+  void remove(const T &k);//done
 
-  T* maximum() const;
+  T* maximum() const;//done
 
-  T* minimum() const;
+  T* minimum() const;//done
 
-  T* successor(const T &k) const;
+  T* successor(const T &k) const;//incompelte
 
-  T* predecessor(const T &k) const;
+  T* predecessor(const T &k) const;//incomplete
 
-  string inOrder() const;
+  string inOrder() const;//done
 
-  string preOrder() const;
+  string preOrder() const;//incomplete
 
-  string postOrder() const;
+  string postOrder() const;//incomplete
 
 private:
 
