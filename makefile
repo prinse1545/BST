@@ -10,7 +10,7 @@ LD = g++
 CFLAGS = -g -Wall -c
 LDFLAGS = -g
 
-all: test_bst BST.o
+all: test_bst imdb BST.o
 
 BST.o: BST.h
 	$(CC) $(CFLAGS) BST.h
@@ -20,6 +20,12 @@ test_bst.o: test_bst.cc BST.h
 
 test_bst: test_bst.o BST.h
 	$(LD) $(LDFLAGS) -o test_bst test_bst.o
+
+imdb.o: imdb.cc dict.h
+	$(CC) $(CFLAGS) imdb.cc
+
+imdb: imdb.o dict.h
+	$(LD) $(LDFLAGS) -o imdb imdb.o
 
 
 clean:
