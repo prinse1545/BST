@@ -20,7 +20,7 @@ BST<T>::BST(const BST<T> &bst) {
 
 template <class T>
 BST<T>::~BST() {
-
+  clear(root);
 }
 
 template <class T>
@@ -218,6 +218,17 @@ void BST<T>::transplant(Node* u, Node*v){
   if(v!=NULL){
     v->parent = u->parent;
   }
+}
+
+template <class T>
+void BST<T>::clear(Node* n) {
+  if(n == NULL) {
+    return;
+  }
+
+  clear(n->left);
+  clear(n->right);
+  delete n;
 }
 
 template <class T>

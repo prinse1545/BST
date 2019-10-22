@@ -10,7 +10,7 @@ LD = g++
 CFLAGS = -g -Wall -c
 LDFLAGS = -g
 
-all: test_bst test_dict imdb BST.o
+all: test_bst imdb BST.o
 
 BST.o: BST.h
 	$(CC) $(CFLAGS) BST.h

@@ -60,7 +60,7 @@ private:
   Node* root;
   int count;
 
-  void clear();
+  void clear(Node* n);
   void transplant(Node* u, Node* v);
   string inOrderHelper(Node* n) const;
 

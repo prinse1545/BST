@@ -29,7 +29,6 @@ int main(){
 
   int got = *p;
 
-  cout <<"Value of got is: "<< bs.inOrder() << endl;
   bs.remove(got);
   return 0;
 }
