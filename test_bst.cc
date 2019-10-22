@@ -15,14 +15,21 @@ int main(){
   BST<int> bs;
 
   int to_insert = 9;
+  int to_insert2 = 12;
+  int to_insert3 = 20;
+  int to_insert4 = 6;
   int* p;
 
   bs.insert(&to_insert);
+  bs.insert(&to_insert2);
+  bs.insert(&to_insert3);
+  bs.insert(&to_insert4);
+
   p = bs.get(to_insert);
 
   int got = *p;
 
-  cout <<"Value of got is: "<< got << endl;
+  cout <<"Value of got is: "<< bs.inOrder() << endl;
   bs.remove(got);
   return 0;
 }

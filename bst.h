@@ -62,6 +62,7 @@ private:
 
   void clear();
   void transplant(Node* u, Node* v);
+  string inOrderHelper(Node* n) const;
 
 };
 

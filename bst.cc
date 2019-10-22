@@ -190,13 +190,7 @@ T* BST<T>::predecessor(const T &k) const {
 template <class T>
 string BST<T>::inOrder() const {
 
-  Node* curr = root;
-
-  if(curr != NULL) {
-    inOrder(curr->left);
-    cout << curr->val;
-    inOrder(curr->right);
-  }
+  inOrderHelper(root);
 }
 
 template <class T>
@@ -224,4 +218,17 @@ void BST<T>::transplant(Node* u, Node*v){
   if(v!=NULL){
     v->parent = u->parent;
   }
+}
+
+template <class T>
+string BST<T>::inOrderHelper(Node* n) const {
+  if(n ==  NULL) {
+    return "";
+  }
+
+  string left = inOrderHelper(n->left);
+  string mid = to_string(n->val);
+  string right = inOrderHelper(n->right);
+
+  return left + ", " + mid + ", " + right;
 }

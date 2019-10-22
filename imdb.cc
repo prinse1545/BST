@@ -6,6 +6,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <sstream>
 #include "dict.h"
 
 using namespace std;
@@ -20,6 +21,7 @@ vector<string> split(string line) {
       s += line[i];
     }
     else {
+
       vec.push_back(s);
       s = "";
     }
@@ -39,13 +41,11 @@ int main() {
 
   while(getline(f, line)) {
 
-
     vector<string> row;
 
-    row = split(line);
+    row = split(line + "\t");
 
-    cout << row[8] << endl;
-
+    cout << row[2] << " | " << row[8] << endl;
 
   }
 
