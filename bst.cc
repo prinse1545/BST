@@ -237,9 +237,8 @@ string BST<T>::inOrderHelper(Node* n) const {
     return "";
   }
 
-  string left = inOrderHelper(n->left);
   string mid = to_string(n->val);
-  string right = inOrderHelper(n->right);
 
-  return left + ", " + mid + ", " + right;
+
+  return inOrderHelper(n->left) + ", " + mid + ", " + inOrderHelper(n->right);
 }

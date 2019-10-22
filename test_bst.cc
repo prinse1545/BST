@@ -28,7 +28,7 @@ int main(){
   p = bs.get(to_insert);
 
   int got = *p;
-
+  cout << bs.inOrder() << endl;
   bs.remove(got);
   return 0;
 }
