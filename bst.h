@@ -181,6 +181,8 @@ private:
   void clear(Node* n);
   void transplant(Node* u, Node* v);
   string inOrderHelper(Node* n) const;
+  string preOrderHelper(Node* n) const;
+  string postOrderHelper(Node* n) const;
 
 };
 

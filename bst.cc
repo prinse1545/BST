@@ -196,11 +196,13 @@ string BST<T>::inOrder() const {
 template <class T>
 string BST<T>::preOrder() const {
 
+  preOrderHelper(root);
 }
 
 template <class T>
 string BST<T>::postOrder() const {
 
+  postOrderHelper(root);
 }
 
 template <class T>
@@ -236,9 +238,30 @@ string BST<T>::inOrderHelper(Node* n) const {
   if(n ==  NULL) {
     return "";
   }
+  else {
+    return inOrderHelper(n->left) + to_string(n->val) + inOrderHelper(n->right);
+  }
 
-  string mid = to_string(n->val);
+}
 
+template <class T>
+string BST<T>::preOrderHelper(Node* n) const {
+  if(n ==  NULL) {
+    return "";
+  }
+  else {
+    return to_string(n->val) + inOrderHelper(n->left) + inOrderHelper(n->right);
+  }
 
-  return inOrderHelper(n->left) + ", " + mid + ", " + inOrderHelper(n->right);
+}
+
+template <class T>
+string BST<T>::postOrderHelper(Node* n) const {
+  if(n ==  NULL) {
+    return "";
+  }
+  else {
+    return inOrderHelper(n->left) + inOrderHelper(n->right) + to_string(n->val);
+  }
+
 }
