@@ -28,6 +28,8 @@ public:
 
   bool operator>=(IMDBPair &pair);
 
+  bool operator!=(IMDBPair &pair);
+
   friend ostream &operator<<(ostream &print, IMDBPair &pair) {
 
     print << pair.name << " | " << pair.genre;

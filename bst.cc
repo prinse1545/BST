@@ -15,7 +15,7 @@ BST<T>::BST() {
 
 template <class T>
 BST<T>::BST(const BST<T> &bst) {
-  cout << "hi" << endl;
+  copyHelper(bst.root);
 }
 
 template <class T>
@@ -263,5 +263,17 @@ string BST<T>::postOrderHelper(Node* n) const {
   else {
     return inOrderHelper(n->left) + inOrderHelper(n->right) + to_string(n->val);
   }
+
+}
+
+template <class T>
+void BST<T>::copyHelper(Node* n) const {
+  if(n == NULL) {
+    return;
+  }
+
+  insert(n->val);
+  copyHelper(n->left);
+  copyHelper(n->right);
 
 }

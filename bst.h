@@ -183,6 +183,7 @@ private:
   string inOrderHelper(Node* n) const;
   string preOrderHelper(Node* n) const;
   string postOrderHelper(Node* n) const;
+  void copyHelper(Node* n) const;
 
 };
 
