@@ -40,7 +40,7 @@ int main() {
 
   string line;
 
-  // Dictionary<IMDBPair> dic;
+  Dictionary<IMDBPair> dic;
 
   while(getline(f, line)) {
 
@@ -53,7 +53,7 @@ int main() {
 
     cout << p << endl;
 
-    // dic.insert(&p);
+    dic.insert(&p);
 
   }
 

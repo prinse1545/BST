@@ -20,3 +20,11 @@ bool IMDBPair::operator<=(IMDBPair &pair) {
 bool IMDBPair::operator>=(IMDBPair &pair) {
   return name >= pair.name;
 }
+
+bool IMDBPair::operator!=(IMDBPair &pair) {
+  return name != pair.name;
+}
+
+bool IMDBPair::operator==(IMDBPair &pair) {
+  return name == pair.name;
+}
