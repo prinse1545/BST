@@ -38,7 +38,7 @@ public:
 
   T* minimum() const;//done
 
-  T* successor(const T &k) const;//incompelte
+  T* successor(const T &k) const;//done
 
   T* predecessor(const T &k) const;//incomplete
 
