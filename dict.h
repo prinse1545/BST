@@ -19,13 +19,57 @@ template <class T>
 class Dictionary : public BST<T> {
 public:
 
+  // Constructor: default, constructs a BST
+  //
+  // Usage: Dictionary<T> dic;
+
   Dictionary() : BST<T>() {  };
+
+  // Function: empty
+  //
+  // Parameter(s):
+  //
+  //   None
+  //
+  // Return Value(s):
+  //
+  //   bool: true if empty
+
 
   bool empty() const;//done
 
+  // Function: get
+  //
+  // Parameter(s):
+  //
+  //   k - key
+  //
+  // Return Value(s):
+  //
+  //   T* - pointer to key
+
   T* get(const T &k) const;//done
 
+  //
+  // Parameter(s):
+  //
+  //   *k - pointer to element
+  //
+  // Return Value(s):
+  //
+  //   None
+
   void insert(T *k);//done
+
+  // Function: remove
+  //
+  // Parameter(s):
+  //
+  //   k - key
+  //
+  // Return Value(s):
+  //
+  //   None
 
   void remove(const T &k);//done
 

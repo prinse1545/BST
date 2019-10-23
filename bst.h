@@ -20,31 +20,149 @@ class BST {
 
 public:
 
+  // Constructor: default
+  // Usage: BST<T> bst;
+
   BST();//done
+
+  // Constructor: input
+  // Usage: BST<T> bst(pointer to element)
 
   BST(const BST<T> &bst);//incomplete
 
+  //Destructor
+
   ~BST();//done
+
+  // Function: empty
+  //
+  // Parameter(s):
+  //
+  //   None
+  //
+  // Return Value(s):
+  //
+  //   bool: true if empty
 
   bool empty() const;//done
 
+  // Function: get
+  //
+  // Parameter(s):
+  //
+  //   k - key
+  //
+  // Return Value(s):
+  //
+  //   T* - pointer to key
+
   T* get(const T &k) const;//done
+
+  // Function: insert
+  //
+  // Parameter(s):
+  //
+  //   *k - pointer to element
+  //
+  // Return Value(s):
+  //
+  //   None
 
   void insert(T *k);//done
 
+  // Function: remove
+  //
+  // Parameter(s):
+  //
+  //   k - key
+  //
+  // Return Value(s):
+  //
+  //   None
+
   void remove(const T &k);//done
+
+  // Function: maximum
+  //
+  // Parameter(s):
+  //
+  //   None
+  //
+  // Return Value(s):
+  //
+  //   T* - a pointer to the element
 
   T* maximum() const;//done
 
+  // Function: minimum
+  //
+  // Parameter(s):
+  //
+  //   None
+  //
+  // Return Value(s):
+  //
+  //   T* - a pointer to element
+
   T* minimum() const;//done
+
+  // Function: successor
+  //
+  // Parameter(s):
+  //
+  //   k - key
+  //
+  // Return Value(s):
+  //
+  //   T* - a pointer pointing to the successor of k
 
   T* successor(const T &k) const;//done
 
+  // Function: predecessor
+  //
+  // Parameter(s):
+  //
+  //   k - key
+  //
+  // Return Value(s):
+  //
+  //   T* - a pointer to the predecessor of k
+
   T* predecessor(const T &k) const;//incomplete
+
+  // Function: inOrder
+  //
+  // Parameter(s):
+  //
+  //   None
+  //
+  // Return Value(s):
+  //
+  //   string - a string generated from an inOrder tree traversal
 
   string inOrder() const;//done
 
+  // Function: inOrder
+  //
+  // Parameter(s):
+  //
+  //   None
+  //
+  // Return Value(s):
+  //
+  //   string - a string generated from an preOrder tree traversal
+
   string preOrder() const;//incomplete
+
+  // Function: inOrder
+  //
+  // Parameter(s):
+  //
+  //   None
+  //
+  // Return Value(s):
+  //
+  //   string - a string generated from an postOrder tree traversal
 
   string postOrder() const;//incomplete
 
