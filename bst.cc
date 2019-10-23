@@ -184,7 +184,33 @@ T* BST<T>::successor(const T &k) const {
 
 template <class T>
 T* BST<T>::predecessor(const T &k) const {
+  Node* curr = root;
+  //iterating to find the key in the array/tree
+  while(curr != NULL && k != curr->val) {
 
+    if(k < curr->val) {
+      curr = curr->left;
+    }
+    else {
+      curr = curr->right;
+    }
+  }
+
+  Node* x = curr;
+  if(x->right!=NULL){
+    Node* y = x->right;
+    while(y->left!=NULL){
+        y = y->left;
+    }
+    return &y->val;
+  }
+
+  Node* z = x->parent;
+  while (z!=NULL && x==z->right){
+    x = z;
+    z = z->parent;
+  }
+  return &z->val;
 }
 
 template <class T>
