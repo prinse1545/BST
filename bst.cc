@@ -165,21 +165,18 @@ T* BST<T>::successor(const T &k) const {
     }
   }
 
-  Node* x = curr;
-  if(x->right!=NULL){
-    Node* y = x->right;
-    while(y->left!=NULL){
-        y = y->left;
-    }
-    return &y->val;
+  if(curr->right != NULL) {
+    return maximum();
   }
 
-  Node* z = x->parent;
-  while (z!=NULL && x==z->right){
-    x = z;
-    z = z->parent;
+  y = curr->parent;
+
+  while(y != NULL && curr == y->right) {
+    curr = y;
+    y = y->parent;
   }
-  return &z->val;
+
+  return y;
 }
 
 template <class T>
