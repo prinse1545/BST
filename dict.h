@@ -87,4 +87,6 @@ public:
   }
 };
 
+#include "dict.cc"
+
 #endif

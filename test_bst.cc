@@ -7,7 +7,7 @@
 */
 #include <iostream>
 #include "bst.h"
-#include "bst.cc"
+
 using namespace std;
 
 int main(){
@@ -23,7 +23,7 @@ int main(){
   bs.insert(&to_insert);
   bs.insert(&to_insert2);
   bs.insert(&to_insert3);
-  bs.insert(&to_insert4);
+  // bs.insert(&to_insert4);
 
   p = bs.get(to_insert);
 

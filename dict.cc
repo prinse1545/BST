@@ -1,17 +1,17 @@
 
-#include "dict.h"
 
-typename <class T>
-bool Dictionary<T>::empty() {
+
+template <class T>
+bool Dictionary<T>::empty() const {
   return BST<T>::empty();
 }
 
-typename <class T>
-T* Dictionary<T>::get(const T &k) {
+template <class T>
+T* Dictionary<T>::get(const T &k) const {
   return BST<T>::get(k);
 }
 
-typename <class T>
+template <class T>
 void Dictionary<T>::insert(T *k) {
 
   if(BST<T>::empty()) {
@@ -28,7 +28,7 @@ void Dictionary<T>::insert(T *k) {
 
 }
 
-typename <class T>
+template <class T>
 void Dictionary<T>::remove(const T &k) {
   BST<T>::remove(k);
 }

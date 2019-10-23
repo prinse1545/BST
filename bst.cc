@@ -5,7 +5,7 @@
  Description: The .cc implementation file for a binary search tree
               as declared in the bst.h file
 */
-#include "bst.h"
+
 
 template <class T>
 BST<T>::BST() {
@@ -169,7 +169,7 @@ T* BST<T>::successor(const T &k) const {
     return maximum();
   }
 
-  y = curr->parent;
+  Node* y = curr->parent;
 
   while(y != NULL && curr == y->right) {
     curr = y;
@@ -197,7 +197,7 @@ T* BST<T>::predecessor(const T &k) const {
     return maximum();
   }
 
-  y = curr->parent;
+  Node* y = curr->parent;
 
   while(y != NULL && curr == y->left) {
     curr = y;
@@ -259,6 +259,9 @@ string BST<T>::inOrderHelper(Node* n) const {
     return "";
   }
   else {
+    cout << n->val << endl;
+    cout << "Left: " << inOrderHelper(n->left) << endl;
+    cout << "Right: " << inOrderHelper(n->right) << endl;
     return inOrderHelper(n->left) + to_string(n->val) + inOrderHelper(n->right);
   }
 
