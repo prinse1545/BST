@@ -20,9 +20,11 @@ int main(){
   int to_insert4 = 6;
   int* p;
 
+
+
   bs.insert(&to_insert);
   bs.insert(&to_insert2);
-  bs.insert(&to_insert3);
+  // bs.insert(&to_insert3);
   // bs.insert(&to_insert4);
 
   p = bs.get(to_insert);

@@ -20,17 +20,17 @@ public:
 
   IMDBPair(string name, string genre) : name(name), genre(genre) {  };
 
-  bool operator<(IMDBPair &pair);
+  bool operator<(IMDBPair &pair) const;
 
-  bool operator>(IMDBPair &pair);
+  bool operator>(IMDBPair &pair) const;
 
-  bool operator<=(IMDBPair &pair);
+  bool operator<=(IMDBPair &pair) const;
 
-  bool operator>=(IMDBPair &pair);
+  bool operator>=(IMDBPair &pair) const;
 
-  bool operator!=(IMDBPair &pair);
+  bool operator!=(IMDBPair &pair) const;
 
-  bool operator==(IMDBPair &pair);
+  bool operator==(IMDBPair &pair) const;
 
   friend ostream &operator<<(ostream &print, IMDBPair &pair) {
 

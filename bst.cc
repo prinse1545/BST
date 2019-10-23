@@ -35,9 +35,9 @@ T* BST<T>::get(const T &k) const {
 
   Node* curr = root;
 
-  while(curr != NULL && k != curr->val) {
+  while(curr != NULL && k != *curr->val) {
 
-    if(k < curr->val) {
+    if(k < *curr->val) {
       curr = curr->left;
     }
     else {
@@ -45,7 +45,7 @@ T* BST<T>::get(const T &k) const {
     }
   }
 
-  return &curr->val;
+  return curr->val;
 }
 
 template <class T>
@@ -56,7 +56,7 @@ void BST<T>::insert(T *k) {
   z->parent = NULL;
   z->right = NULL;
   z->left = NULL;
-  z->val = *k;
+  z->val = k;
 
   Node* curr = root;
   Node* y = NULL;
@@ -64,7 +64,7 @@ void BST<T>::insert(T *k) {
   while(curr != NULL) {
     y = curr;
 
-    if(z->val < curr->val) {
+    if(*z->val < *curr->val) {
       curr = curr->left;
     }
     else {
@@ -76,7 +76,7 @@ void BST<T>::insert(T *k) {
   if(y == NULL) {
     root = z;
   }
-  else if(z->val < y->val) {
+  else if(*z->val < *y->val) {
     y->left = z;
   }
   else {
@@ -94,9 +94,9 @@ void BST<T>::remove(const T &k) {
 
   Node* curr = root;
   //iterating to find the key in the array/tree
-  while(curr != NULL && k != curr->val) {
+  while(curr != NULL && k != *curr->val) {
 
-    if(k < curr->val) {
+    if(k < *curr->val) {
       curr = curr->left;
     }
     else {
@@ -155,9 +155,9 @@ template <class T>
 T* BST<T>::successor(const T &k) const {
   Node* curr = root;
   //iterating to find the key in the array/tree
-  while(curr != NULL && k != curr->val) {
+  while(curr != NULL && k != *curr->val) {
 
-    if(k < curr->val) {
+    if(k < *curr->val) {
       curr = curr->left;
     }
     else {
@@ -183,9 +183,9 @@ template <class T>
 T* BST<T>::predecessor(const T &k) const {
   Node* curr = root;
   //iterating to find the key in the array/tree
-  while(curr != NULL && k != curr->val) {
+  while(curr != NULL && k != *curr->val) {
 
-    if(k < curr->val) {
+    if(k < *curr->val) {
       curr = curr->left;
     }
     else {
@@ -255,16 +255,16 @@ void BST<T>::clear(Node* n) {
 
 template <class T>
 string BST<T>::inOrderHelper(Node* n) const {
+
   if(n ==  NULL) {
     return "";
   }
   else {
-    cout << n->val << endl;
+    cout << "n" <<*n->val << endl;
     cout << "Left: " << inOrderHelper(n->left) << endl;
     cout << "Right: " << inOrderHelper(n->right) << endl;
-    return inOrderHelper(n->left) + to_string(n->val) + inOrderHelper(n->right);
+    return inOrderHelper(n->left) + to_string(*n->val) + inOrderHelper(n->right);
   }
-
 }
 
 template <class T>
@@ -273,7 +273,7 @@ string BST<T>::preOrderHelper(Node* n) const {
     return "";
   }
   else {
-    return to_string(n->val) + inOrderHelper(n->left) + inOrderHelper(n->right);
+    return to_string(*n->val) + inOrderHelper(n->left) + inOrderHelper(n->right);
   }
 
 }
@@ -284,7 +284,7 @@ string BST<T>::postOrderHelper(Node* n) const {
     return "";
   }
   else {
-    return inOrderHelper(n->left) + inOrderHelper(n->right) + to_string(n->val);
+    return inOrderHelper(n->left) + inOrderHelper(n->right) + to_string(*n->val);
   }
 
 }
@@ -295,7 +295,7 @@ void BST<T>::copyHelper(Node* n) const {
     return;
   }
 
-  insert(n->val);
+  insert(*n->val);
   copyHelper(n->left);
   copyHelper(n->right);
 

@@ -172,7 +172,7 @@ private:
     Node* parent;
     Node* left;
     Node* right;
-    T val;
+    T* val;
   };
 
   Node* root;

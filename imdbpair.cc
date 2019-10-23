@@ -4,27 +4,27 @@
 // Description: This file implements the imdbpair header file
 #include "imdbpair.h"
 
-bool IMDBPair::operator<(IMDBPair &pair) {
+bool IMDBPair::operator<(IMDBPair &pair) const {
   return name < pair.name;
 }
 
 
-bool IMDBPair::operator>(IMDBPair &pair) {
+bool IMDBPair::operator>(IMDBPair &pair) const {
   return name > pair.name;
 }
 
-bool IMDBPair::operator<=(IMDBPair &pair) {
+bool IMDBPair::operator<=(IMDBPair &pair) const {
   return name <= pair.name;
 }
 
-bool IMDBPair::operator>=(IMDBPair &pair) {
+bool IMDBPair::operator>=(IMDBPair &pair) const {
   return name >= pair.name;
 }
 
-bool IMDBPair::operator!=(IMDBPair &pair) {
+bool IMDBPair::operator!=(IMDBPair &pair) const {
   return name != pair.name;
 }
 
-bool IMDBPair::operator==(IMDBPair &pair) {
+bool IMDBPair::operator==(IMDBPair &pair) const {
   return name == pair.name;
 }
