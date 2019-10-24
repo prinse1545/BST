@@ -41,7 +41,7 @@ int main() {
 
   string line;
 
-  // Dictionary<IMDBPair> dic;
+  Dictionary<IMDBPair> dic;
 
   while(getline(f, line)) {
 
@@ -50,15 +50,27 @@ int main() {
     row = split(line + "\t");
 
 
-    // IMDBPair p(row[2], row[8]);
+    IMDBPair p(row[2], row[8]);
 
-    cout << row[2] << row[8] << endl;
 
-    // dic.insert(&p);
+    dic.insert(&p);
 
   }
 
   f.close();
+
+  string resp = "";
+
+  while(resp != "exit") {
+    cout << "Enter a movie and get the genre! (type exit to exit): ";
+    cin >> resp;
+
+    IMDBPair* pair = dic.get(resp)
+
+    cout << "The genre is " << *pair << endl;
+
+    resp = "";
+  }
 
 
   return 0;
