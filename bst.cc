@@ -290,12 +290,12 @@ string BST<T>::postOrderHelper(Node* n) const {
 }
 
 template <class T>
-void BST<T>::copyHelper(Node* n) const {
+void BST<T>::copyHelper(Node* n) {
   if(n == NULL) {
     return;
   }
 
-  insert(*n->val);
+  insert(n->val);
   copyHelper(n->left);
   copyHelper(n->right);
 
