@@ -6,7 +6,6 @@
               as declared in the bst.h file
 */
 
-#include<string>
 
 template <class T>
 BST<T>::BST() {
@@ -191,7 +190,7 @@ T* BST<T>::predecessor(const T &k) const {
   }
 
   if(curr->left != NULL) {
-    return maximum();
+    return minimum();
   }
 
   Node* y = new Node;
@@ -281,7 +280,7 @@ string BST<T>::postOrderHelper(Node* n) const {
     return "";
   }
   else {
-    return postOrderHelper(n->left) + postOrderHelper(n->right) + to_string(*n->val);
+    return postOrderHelper(n->left) +  postOrderHelper(n->right) + " " + to_string(*n->val);
   }
 }
 
