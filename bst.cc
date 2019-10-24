@@ -5,7 +5,8 @@
  Description: The .cc implementation file for a binary search tree
               as declared in the bst.h file
 */
-
+#include"bst.h"
+#include<string>
 
 template <class T>
 BST<T>::BST() {
@@ -15,6 +16,7 @@ BST<T>::BST() {
 
 template <class T>
 BST<T>::BST(const BST<T> &bst) {
+  root = NULL;
   copyHelper(bst.root);
 }
 
@@ -31,12 +33,14 @@ bool BST<T>::empty() const {
 template <class T>
 T* BST<T>::get(const T &k) const {
 
-  if(empty()) throw new EmptyBSTException;
+  if(empty()){
+     throw new EmptyBSTException;
+     //cout<<"Tree is empty"<<endl;
+   }
 
   Node* curr = root;
 
   while(curr != NULL && k != *curr->val) {
-
     if(k < *curr->val) {
       curr = curr->left;
     }
@@ -51,38 +55,31 @@ T* BST<T>::get(const T &k) const {
 template <class T>
 void BST<T>::insert(T *k) {
 
-  Node* z = new Node;
-
-  z->parent = NULL;
-  z->right = NULL;
-  z->left = NULL;
-  z->val = k;
-
-  Node* curr = root;
   Node* y = NULL;
+  Node* z = new Node;
+  z->val = k;
+  Node* curr;
 
-  while(curr != NULL) {
+  curr = root;//bst.root
+  while(curr != NULL){
     y = curr;
-
-    if(*z->val < *curr->val) {
-      curr = curr->left;
+    if(*z->val < *curr->val){//bst.root){
+      curr=curr->left;
     }
-    else {
-      curr = curr->right;
+    else{
+      curr=curr->right;
     }
   }
-
   z->parent = y;
-  if(y == NULL) {
+  if(y == NULL){
     root = z;
   }
-  else if(*z->val < *y->val) {
+  else if(*z->val < *y->val){
     y->left = z;
   }
-  else {
+  else{
     y->right = z;
   }
-
   count++;
 }
 
@@ -115,7 +112,7 @@ void BST<T>::remove(const T &k) {
     Node* y = z->right;
     while(y->left!=NULL){
         y = y->left;
-    }
+    }//bst.root
     if(y->parent!=z){
       transplant(y,y->right);
       y->right = z->right;
@@ -136,7 +133,7 @@ T* BST<T>::maximum() const {
     curr = curr->right;
   }
 
-  return curr;
+  return curr->val;
 }
 
 template <class T>
@@ -148,7 +145,7 @@ T* BST<T>::minimum() const {
     curr = curr->left;
   }
 
-  return curr;
+  return curr->val;
 }
 
 template <class T>
@@ -169,14 +166,14 @@ T* BST<T>::successor(const T &k) const {
     return maximum();
   }
 
-  Node* y = curr->parent;
+  Node* y = new Node;
+  y = curr->parent;
 
   while(y != NULL && curr == y->right) {
     curr = y;
     y = y->parent;
   }
-
-  return y;
+  return y->val;
 }
 
 template <class T>
@@ -197,32 +194,36 @@ T* BST<T>::predecessor(const T &k) const {
     return maximum();
   }
 
-  Node* y = curr->parent;
+  Node* y = new Node;
+  y = curr->parent;
 
   while(y != NULL && curr == y->left) {
     curr = y;
     y = y->parent;
   }
 
-  return y;
+  return y->val;
 }
 
 template <class T>
-string BST<T>::inOrder() const {
+string BST<T>::inOrder() const{
 
-  inOrderHelper(root);
+  string inOrder = inOrderHelper(root);
+  return inOrder;
 }
 
 template <class T>
 string BST<T>::preOrder() const {
 
-  preOrderHelper(root);
+  string preOrder = preOrderHelper(root);
+  return preOrder;
 }
 
 template <class T>
 string BST<T>::postOrder() const {
 
-  postOrderHelper(root);
+  string postOrder = postOrderHelper(root);
+  return postOrder;
 }
 
 template <class T>
@@ -254,16 +255,13 @@ void BST<T>::clear(Node* n) {
 }
 
 template <class T>
-string BST<T>::inOrderHelper(Node* n) const {
+string BST<T>::inOrderHelper(Node* n) const{
 
   if(n ==  NULL) {
     return "";
   }
   else {
-    cout << "n" <<*n->val << endl;
-    cout << "Left: " << inOrderHelper(n->left) << endl;
-    cout << "Right: " << inOrderHelper(n->right) << endl;
-    return inOrderHelper(n->left) + to_string(*n->val) + inOrderHelper(n->right);
+    return inOrderHelper(n->left) + to_string(*n->val) + " " + inOrderHelper(n->right);
   }
 }
 
@@ -273,9 +271,8 @@ string BST<T>::preOrderHelper(Node* n) const {
     return "";
   }
   else {
-    return to_string(*n->val) + inOrderHelper(n->left) + inOrderHelper(n->right);
+    return to_string(*n->val) + " " + preOrderHelper(n->left) + preOrderHelper(n->right);
   }
-
 }
 
 template <class T>
@@ -284,9 +281,8 @@ string BST<T>::postOrderHelper(Node* n) const {
     return "";
   }
   else {
-    return inOrderHelper(n->left) + inOrderHelper(n->right) + to_string(*n->val);
+    return postOrderHelper(n->left) + postOrderHelper(n->right) + to_string(*n->val);
   }
-
 }
 
 template <class T>

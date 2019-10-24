@@ -28,7 +28,7 @@ public:
   // Constructor: input
   // Usage: BST<T> bst(pointer to element)
 
-  BST(const BST<T> &bst);//incomplete
+  BST(const BST<T> &bst);//done
 
   //Destructor
 
@@ -128,7 +128,7 @@ public:
   //
   //   T* - a pointer to the predecessor of k
 
-  T* predecessor(const T &k) const;//incomplete
+  T* predecessor(const T &k) const;//done
 
   // Function: inOrder
   //
@@ -141,7 +141,6 @@ public:
   //   string - a string generated from an inOrder tree traversal
 
   string inOrder() const;//done
-
   // Function: inOrder
   //
   // Parameter(s):
@@ -152,7 +151,7 @@ public:
   //
   //   string - a string generated from an preOrder tree traversal
 
-  string preOrder() const;//incomplete
+  string preOrder() const;//done
 
   // Function: inOrder
   //
@@ -164,7 +163,7 @@ public:
   //
   //   string - a string generated from an postOrder tree traversal
 
-  string postOrder() const;//incomplete
+  string postOrder() const;//done
 
 private:
 
@@ -194,6 +193,6 @@ public:
   }
 };
 
-#include "bst.cc"
+// #include "bst.cc"
 
 #endif
