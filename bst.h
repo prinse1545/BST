@@ -193,6 +193,6 @@ public:
   }
 };
 
-// #include "bst.cc"
+#include "bst.cc"
 
 #endif

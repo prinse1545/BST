@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include "dict.h"
+#include "imdbpair.cc"
 #include "imdbpair.h"
 
 using namespace std;
@@ -12,6 +13,10 @@ using namespace std;
 int main() {
 
   Dictionary<IMDBPair> dic;
+
+  IMDBPair p("hello", "world");
+
+  dic.insert(&p);
 
 
 

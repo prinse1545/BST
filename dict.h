@@ -50,7 +50,8 @@ public:
 
   T* get(const T &k) const;//done
 
-  //
+  //warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+
   // Parameter(s):
   //
   //   *k - pointer to element

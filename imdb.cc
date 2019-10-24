@@ -8,6 +8,7 @@
 #include <vector>
 #include <sstream>
 #include "dict.h"
+#include "imdbpair.cc"
 #include "imdbpair.h"
 
 using namespace std;
@@ -40,7 +41,7 @@ int main() {
 
   string line;
 
-  Dictionary<IMDBPair> dic;
+  // Dictionary<IMDBPair> dic;
 
   while(getline(f, line)) {
 
@@ -49,11 +50,11 @@ int main() {
     row = split(line + "\t");
 
 
-    IMDBPair p(row[2], row[8]);
+    // IMDBPair p(row[2], row[8]);
 
-    cout << p << endl;
+    cout << row[2] << row[8] << endl;
 
-    dic.insert(&p);
+    // dic.insert(&p);
 
   }
 

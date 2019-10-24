@@ -5,7 +5,7 @@
  Description: The .cc implementation file for a binary search tree
               as declared in the bst.h file
 */
-#include"bst.h"
+
 #include<string>
 
 template <class T>
