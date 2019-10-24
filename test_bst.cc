@@ -7,43 +7,205 @@
 */
 #include <iostream>
 #include "bst.h"
-#include "bst.cc"
 #include "assert.h"
-
 using namespace std;
+//////////////////////////////////////////////////////////////
 
-int main(){
+void testEmpty(){
+  BST<int>test;
+  assert(test.empty()==1);
+  int a = 8;
+  test.insert(&a);
+  assert(test.empty()==0);
+}
+//////////////////////////////////////////////////////////////
 
-  BST<int> bs;
+void testInsert(){
+  int a = 8;
+  int b = 2;
+  int c = 3;
+  int d = 13;
+  int e = 11;
+  BST<int>test;
+  test.insert(&a);
+  test.insert(&b);
+  test.insert(&c);
+  test.insert(&d);
+  test.insert(&e);
+  assert(test.inOrder()=="2 4 8 11 13");
+}
+//////////////////////////////////////////////////////////////
 
-  int to_insert = 9;
-  int to_insert2 = 12;
-  int to_insert3 = 20;
-  int to_insert4 = 6;
-  int* p;
-  bs.insert(&to_insert);
-  bs.insert(&to_insert2);
-  bs.insert(&to_insert3);
-  bs.insert(&to_insert4);
+void testGet(){
+  int a = 8;
 
-  p = bs.get(to_insert);
-  int* x = bs.successor(to_insert2);
-  cout<<"The successor to 12 is "<<*x<<endl;
-  assert(*x == 20);
-  int* y = bs.predecessor(to_insert2);
-  cout<<"The predecessor to 12 is "<<*y<<endl;
-  assert(*y == 9);
+  int b = 2;
+  int c = 3;
+  int d = 13;
+  int e = 11;
 
-  BST<int>cs=bs;
-  cout<<"inOrder() of bs is: "<<bs.inOrder()<<endl;
-  cout<<"inOrder() of cs is: "<<cs.inOrder()<<endl;
-  cout<<"We tried to get value 9, we got: "<<*p<<endl;
-  string str = bs.inOrder();
-  cout <<"inOrder() is "<< str << endl;
-  string str1 = bs.preOrder();
-  cout<<"preOrder() is "<< str1 <<endl;
-  string str2 = bs.postOrder();
-  cout<<"postOrder() is "<<str2<<endl;
+  BST<int>test;
+  test.insert(&a);
+  test.insert(&b);
+  test.insert(&c);
+  test.insert(&d);
+  test.insert(&e);
+  assert(test.get(a)== &a);
+  assert(test.get(b)== &b);
+  assert(test.get(e)== &e);
+}
+/////////////////////////////////////////////////////////////
 
+void testMin(){
+  int a = 8;
+  int b = 2;
+  int c = 3;
+  int d = 13;
+  int e = 11;
+  BST<int>test;
+  test.insert(&a);
+  test.insert(&b);
+  test.insert(&c);
+  test.insert(&d);
+  test.insert(&e);
+  int* x = test.minimum();
+  assert(*x == 2);
+
+}
+//////////////////////////////////////////////////////////////
+
+void testRemove(){
+  int a = 8;
+  int b = 2;
+  int c = 3;
+  int d = 13;
+  int e = 11;
+  BST<int>test;
+  test.insert(&a);
+  test.insert(&b);
+  test.insert(&c);
+  test.insert(&d);
+  test.insert(&e);
+
+  test.remove(d);
+  test.remove(a);
+  assert(test.inOrder()=="2 3 11");
+}
+///////////////////////////////////////////////////////////////
+
+void testMax(){
+  int a = 8;
+  int b = 2;
+  int c = 3;
+  int d = 13;
+  int e = 11;
+  BST<int>test;
+  test.insert(&a);
+  test.insert(&b);
+  test.insert(&c);
+  test.insert(&d);
+  test.insert(&e);
+
+  assert(*test.maximum()==3);
+}
+//////////////////////////////////////////////////////////////
+
+void testSuccessor(){
+  int a = 8;
+  int b = 2;
+  int c = 3;
+  int d = 13;
+  int e = 11;
+  BST<int>test;
+  test.insert(&a);
+  test.insert(&b);
+  test.insert(&c);
+  test.insert(&d);
+  test.insert(&e);
+  int* successorValue = test.successor(a);
+  assert(*successorValue == 13);
+}
+////////////////////////////////////////////////////////////
+
+
+void testPredecessor(){
+  int a = 8;
+  int b = 2;
+  int c = 3;
+  int d = 13;
+  int e = 11;
+  BST<int>test;
+  test.insert(&a);
+  test.insert(&b);
+  test.insert(&c);
+  test.insert(&d);
+  test.insert(&e);
+  int* predecessorValue = test.predecessor(a);
+  assert(*predecessorValue == 3);
+}
+///////////////////////////////////////////////////////////
+
+void testInOrder(){
+  int a = 8;
+  int b = 2;
+  int c = 3;
+  int d = 13;
+  int e = 11;
+  BST<int>test;
+  test.insert(&a);
+  test.insert(&b);
+  test.insert(&c);
+  test.insert(&d);
+  test.insert(&e);
+  assert(test.inOrder()=="2 3 8 11 13");
+}
+/////////////////////////////////////////////////////////
+
+void testPreOrder(){
+  int a = 8;
+  int b = 2;
+  int c = 3;
+  int d = 13;
+  int e = 11;
+  BST<int>test;
+  test.insert(&a);
+  test.insert(&b);
+  test.insert(&c);
+  test.insert(&d);
+  test.insert(&e);
+  cout << test.preOrder() << endl;
+  assert(test.preOrder()=="2 3 8 11 13");
+}
+//////////////////////////////////////////////////////////
+
+void testPostOrder(){
+  int a = 8;
+  int b = 2;
+  int c = 3;
+  int d = 13;
+  int e = 11;
+  BST<int>test;
+  test.insert(&a);
+  test.insert(&b);
+  test.insert(&c);
+  test.insert(&d);
+  test.insert(&e);
+  assert(test.postOrder()=="2 3 8 11 13");
+}
+///////////////////////////////////////////////////////
+
+
+int main()
+{
+  testEmpty();
+  testGet();
+  testMax();
+  testMin();
+  testRemove();
+  testSuccessor();
+  testPredecessor();
+  testInOrder();
+  testPreOrder();
+  testPostOrder();
   return 0;
 }
