@@ -26,24 +26,24 @@ int main(){
   bs.insert(&to_insert3);
   bs.insert(&to_insert4);
 
-  // p = bs.get(to_insert);
-  // int* x = bs.successor(to_insert2);
-  // cout<<"The successor to 12 is "<<*x<<endl;
-  // assert(*x == 20);
-  // int* y = bs.predecessor(to_insert2);
-  // cout<<"The predecessor to 12 is "<<*y<<endl;
-  // assert(*y == 9);
-  //
-  // BST<int>cs=bs;
-  // cout<<"inOrder() of bs is: "<<bs.inOrder()<<endl;
-  // cout<<"inOrder() of cs is: "<<cs.inOrder()<<endl;
-  // cout<<"We tried to get value 9, we got: "<<*p<<endl;
-  // string str = bs.inOrder();
-  // cout <<"inOrder() is "<< str << endl;
-  // string str1 = bs.preOrder();
-  // cout<<"preOrder() is "<< str1 <<endl;
-  // string str2 = bs.postOrder();
-  // cout<<"postOrder() is "<<str2<<endl;
-  //bs.remove(got);
+  p = bs.get(to_insert);
+  int* x = bs.successor(to_insert2);
+  cout<<"The successor to 12 is "<<*x<<endl;
+  assert(*x == 20);
+  int* y = bs.predecessor(to_insert2);
+  cout<<"The predecessor to 12 is "<<*y<<endl;
+  assert(*y == 9);
+
+  BST<int>cs=bs;
+  cout<<"inOrder() of bs is: "<<bs.inOrder()<<endl;
+  cout<<"inOrder() of cs is: "<<cs.inOrder()<<endl;
+  cout<<"We tried to get value 9, we got: "<<*p<<endl;
+  string str = bs.inOrder();
+  cout <<"inOrder() is "<< str << endl;
+  string str1 = bs.preOrder();
+  cout<<"preOrder() is "<< str1 <<endl;
+  string str2 = bs.postOrder();
+  cout<<"postOrder() is "<<str2<<endl;
+
   return 0;
 }
