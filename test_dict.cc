@@ -18,7 +18,7 @@ int main() {
   int numbers[] = {12, 20, 5, 16, 32, 1, 6};
   //Testing insert
   for(int i = 0; i < 7; i++) {
-    dic.insert(numbers[i]);
+    dic.insert(&numbers[i]);
   }
   //Testing empty
   assert(dic.empty() == 1);
